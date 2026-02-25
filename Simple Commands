@@ -1,0 +1,8 @@
+SELECT * FROM Sales;
+SELECT product_name, unit_price FROM Products;
+SELECT sale_id, sale_date FROM Sales;
+SELECT * FROM Sales WHERE total_price > 100;
+SELECT * FROM Products WHERE category = 'Electronics';
+SELECT sale_id, total_price 
+FROM Sales 
+WHERE sale_date = '2024-01-03';
