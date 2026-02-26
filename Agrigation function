@@ -1,0 +1,15 @@
+SELECT * FROM Products WHERE category = 'Electronics';
+SELECT SUM(total_price) AS total_revenue 
+FROM Sales;
+SELECT AVG(unit_price) AS average_unit_price 
+FROM Products;
+SELECT SUM(quantity_sold) AS total_quantity_sold 
+FROM Sales;
+SELECT sale_date, COUNT(*) AS sales_count 
+FROM Sales 
+GROUP BY sale_date 
+ORDER BY sale_date;
+SELECT product_name, unit_price 
+FROM Products 
+ORDER BY unit_price DESC 
+LIMIT 1;
