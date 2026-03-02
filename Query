@@ -1,0 +1,15 @@
+1.Calculate the number of days between the current date and the sale date for each sale.
+Query:
+
+SELECT sale_id, DATEDIFF(NOW(), sale_date) AS days_since_sale
+FROM Sales;
+
+ 2.Identify sales made during weekdays versus weekends.
+Query:
+
+SELECT sale_id,
+       CASE 
+           WHEN DAYOFWEEK(sale_date) IN (1, 7) THEN 'Weekend'
+           ELSE 'Weekday'
+       END AS day_type
+FROM Sales;
