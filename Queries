@@ -1,0 +1,23 @@
+3. Retrieve the product details (name, category, unit price) for products that have a quantity sold greater than the average quantity sold across all products.
+Query:
+
+SELECT product_name, category, unit_price
+FROM Products
+WHERE product_id IN (
+    SELECT product_id
+    FROM Sales
+    GROUP BY product_id
+    HAVING SUM(quantity_sold) > (SELECT AVG(quantity_sold) FROM Sales)
+);
+
+
+4. Explain the significance of indexing in SQL databases and provide an example scenario where indexing could significantly improve query performance in the given schema.
+Query:
+
+-- Create an index on the sale_date column
+CREATE INDEX idx_sale_date ON Sales (sale_date);
+
+-- Query with indexing
+SELECT *
+FROM Sales
+WHERE sale_date = '2024-01-03';
