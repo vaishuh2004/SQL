@@ -1,0 +1,18 @@
+1. Add a foreign key constraint to the Sales table that references the product_id column in the Products table.
+Query:
+
+ALTER TABLE Sales
+ADD CONSTRAINT fk_product_id
+FOREIGN KEY (product_id)
+REFERENCES Products(product_id);
+
+2.Create a view named Top_Products that lists the top 3 products based on the total quantity sold.
+Query:
+
+CREATE VIEW Top_Products AS
+SELECT p.product_name, SUM(s.quantity_sold) AS total_quantity_sold
+FROM Sales s
+JOIN Products p ON s.product_id = p.product_id
+GROUP BY p.product_name
+ORDER BY total_quantity_sold DESC
+LIMIT 3;
