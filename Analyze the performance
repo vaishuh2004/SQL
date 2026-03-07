@@ -1,0 +1,16 @@
+Analyze the performance implications of indexing the sale_date column in the Sales table, considering the types of queries commonly executed against this column.
+Query:
+
+-- Query without indexing
+EXPLAIN ANALYZE
+SELECT *
+FROM Sales
+WHERE sale_date = '2024-01-01';
+
+-- Query with indexing
+CREATE INDEX idx_sale_date ON Sales (sale_date);
+
+EXPLAIN ANALYZE
+SELECT *
+FROM Sales
+WHERE sale_date = '2024-01-01';
