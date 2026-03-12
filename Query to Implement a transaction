@@ -1,0 +1,16 @@
+Implement a transaction that inserts a new product into the Products table and then adds a corresponding sale record into the Sales table, ensuring that both operations are either fully completed or fully rolled back.
+Query:
+
+CREATE PROCEDURE Update_Unit_Price (
+    @product_id INT,
+    @new_unit_price DECIMAL(10, 2)
+)
+AS
+BEGIN
+    UPDATE Products
+    SET unit_price = @new_unit_price
+    WHERE product_id = @product_id;
+END;
+
+EXEC Update_Unit_Price @product_id = 101, @new_unit_price = 550.00;
+SELECT * FROM Products;
